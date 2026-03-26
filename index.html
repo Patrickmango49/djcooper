@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>𝐃𝐉 𝐂𝐨𝟎𝐩𝐞𝐫 | Official Website</title>
+
+<link rel="icon" type="image/png" href="https://bio.linkcdn.cc/upload/8010317easavz/2026021002/1770689769016.png">
+
+<style>
+    /* Base & Particle Background */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: radial-gradient(circle at top right, #008b8b, #002b36);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+        padding: 40px 0 100px 0;
+    }
+
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .main-container {
+        width: 85%;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        border-radius: 30px;
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+        margin-bottom: 20px;
+        z-index: 1;
+    }
+
+    .top-banner {
+        grid-column: span 2;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .profile-side {
+        padding: 0 0 60px 60px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .links-side {
+        padding: 20px 60px 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: flex-start; /* move Connect up */
+    }
+
+    .avatar {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        margin-top: -80px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        object-fit: cover;
+        border: 5px solid #002b36;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        margin: 0;
+        color: #00ffff;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+        animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px rgba(0, 255, 255, 0.4); }
+        to { text-shadow: 0 0 25px rgba(0, 255, 255, 0.9); }
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .info-item {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 255, 255, 0.1);
+    }
+
+    .info-item label {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: #00ffff;
+        margin-bottom: 5px;
+    }
+
+    .info-item span {
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: #00ffff;
+    }
+
+    .social-link {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 18px;
+        border-radius: 15px;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        transition: 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .social-link:hover {
+        background: rgba(0, 255, 255, 0.15);
+        border-color: #00ffff;
+        transform: translateX(10px);
+    }
+
+    /* 🔗 MUSIC SAMPLES BUTTON */
+    .samples-link {
+        margin-top: 15px; /* small gap below Connect links */
+        padding: 12px 30px;
+        max-width: 220px;
+        text-align: center;
+        border-radius: 30px;
+        background: rgba(0,0,0,0.35);
+        border: 1px solid rgba(0,255,255,0.3);
+        color: #00ffff;
+        font-weight: bold;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: 0.3s;
+        box-shadow: 0 5px 15px rgba(0,255,255,0.2);
+        position: relative;
+        z-index: 2;
+        align-self: start;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .samples-link:hover {
+        background: rgba(0,255,255,0.2);
+        box-shadow: 0 0 25px rgba(0,255,255,0.5);
+        transform: translateY(-5px);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+    }
+
+    .collab-card {
+        margin-top: 20px;
+        padding: 25px;
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 139, 139, 0.15));
+        border-radius: 20px;
+        border-left: 5px solid #00ffff;
+    }
+
+    .copy-email-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+        background: rgba(0,0,0,0.3);
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    #email-text {
+        font-size: 0.8rem;
+        flex-grow: 1;
+    }
+
+    .copy-btn {
+        background: #00ffff;
+        color: #002b36;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 0.7rem;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+    .thanks-box {
+        grid-column: span 2;
+        margin: 0 40px 30px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(0, 255, 255, 0.25);
+        padding: 12px 16px;
+        border-radius: 14px;
+        font-size: 0.8rem;
+        color: #cfffff;
+        text-align: center;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .thanks-box:hover {
+        background: rgba(0, 255, 255, 0.15);
+        color: #ffffff;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .marquee-container {
+        width: 100%;
+        background: rgba(0, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border-top: 1px solid rgba(0, 255, 255, 0.3);
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        z-index: 100;
+    }
+
+    .marquee-content {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+        font-weight: bold;
+        color: #00ffff;
+    }
+
+    @keyframes marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+</style>
+</head>
+<body>
+
+<!-- 🔊 BACKGROUND MUSIC -->
+<audio id="bg-music" src="https://image2url.com/r2/default/audio/1770757358427-5b54c966-d1f5-45e8-9305-ea2067f56522.mp3" loop></audio>
+
+<div id="particles-js"></div>
+
+<div class="main-container">
+
+    <img src="https://yt3.googleusercontent.com/ew9ofZK_7OZGwNARaMKfs4rSuwcFGxPDzXu8aeCzVb2IDulbYwe0NLRSyQJiBvUaL5Xk_PcwOCg=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" class="top-banner">
+
+    <div class="profile-side">
+        <img src="https://bio.linkcdn.cc/upload/8010317easavz/2026021002/1770689769016.png" class="avatar">
+        <h1>𝐃𝐉 𝐂𝐨𝟎𝐩𝐞𝐫</h1>
+        <p class="bio">
+            Hi, I’m a 14 year old chill phonk producer that is trying to get crazy views and money. My dream is to become viral and I hope you enjoy my music😁
+        </p>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <label>Next Release: Feb 18th</label>
+                <span>Montagem Pique</span>
+            </div>
+            <div class="info-item">
+                <label>DAW</label>
+                <span>FL Studio</span>
+            </div>
+        </div>
+
+        <div class="collab-card">
+            <h3 style="margin:0; color:#00ffff;">Work With Me</h3>
+            <div class="copy-email-box">
+                <span id="email-text">DJCo0per328@gmail.com</span>
+                <button class="copy-btn" onclick="copyEmail()">COPY</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="links-side">
+        <div class="section-title">Connect</div>
+        <a href="https://open.spotify.com/artist/0yLfZts8uWNpchGmAYRCGI?si=7GvHc01lQ2CTjhAh2Kmh7g" target="_blank" class="social-link"><span>Spotify</span><span>→</span></a>
+        <a href="https://www.youtube.com/@DJCo0perOffical" target="_blank" class="social-link"><span>YouTube</span><span>→</span></a>
+        <a href="https://www.tiktok.com/@dj_co0per" target="_blank" class="social-link"><span>TikTok</span><span>→</span></a>
+
+        <!-- Music Samples button now under Connect -->
+        <a href="musicsamples.html" class="samples-link">🎧 Music Samples</a>
+    </div>
+
+    <a class="thanks-box" href="https://sites.google.com/view/mccrack12/" target="_blank">
+        💙 Special Thanks to <strong>Patrick_Mango</strong> for helping me build this website!
+    </a>
+</div>
+
+<div class="marquee-container">
+    <div class="marquee-content">
+        NEW DROP SOON // ROAD TO VIRAL 2026 // CHECK OUT THE SPOTIFY // 𝐃𝐉 𝐂𝐨𝟎𝐩𝐞𝐫 ON THE BEAT //
+    </div>
+</div>
+
+<script>
+function copyEmail() {
+    const email = "DJCo0per328@gmail.com";
+    navigator.clipboard.writeText(email);
+    const btn = document.querySelector('.copy-btn');
+    btn.innerText = "COPIED!";
+    btn.style.background = "#ffffff";
+    setTimeout(() => {
+        btn.innerText = "COPY";
+        btn.style.background = "#00ffff";
+    }, 2000);
+}
+
+// Particles
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+document.getElementById('particles-js').appendChild(canvas);
+let particles = [];
+
+function initParticles() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particles = [];
+    for (let i = 0; i < 120; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 3 + 1,
+            speed: Math.random() * 0.8 + 0.2
+        });
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgba(0, 255, 255, 0.5)";
+    particles.forEach(p => {
+        p.y -= p.speed;
+        if (p.y < 0) p.y = canvas.height;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', initParticles);
+initParticles();
+animate();
+
+// Background music
+const music = document.getElementById("bg-music");
+music.volume = 0.3;
+document.addEventListener("click", () => { if(music.paused) music.play(); }, { once: true });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Co0per | Music Samples</title>
+
+<link rel="icon" type="image/png" href="https://bio.linkcdn.cc/upload/8010317easavz/2026021002/1770689769016.png">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top right, #008b8b, #002b36);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+#particles-js {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.main-container {
+    width: 85%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #00ffff;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+
+.subtitle {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+.samples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.sample-card {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    transition: 0.3s;
+}
+
+.sample-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.35);
+}
+
+.sample-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    background: #000;
+}
+
+.sample-content {
+    padding: 20px;
+}
+
+.sample-title {
+    font-weight: bold;
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 10px;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.3));
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 40px;
+    text-decoration: none;
+    color: #00ffff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    text-shadow: 0 0 10px #00ffff;
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="main-container">
+    <h1>Music Samples</h1>
+    <p class="subtitle">Exclusive previews & unreleased sounds 🎧</p>
+
+    <div class="samples-grid">
+
+        <!-- SAMPLE 1 -->
+        <div class="sample-card">
+            <img src="https://img.freepik.com/free-photo/abstract-geometric-background-shapes-texture_1194-301824.jpg?w=360" class="sample-image">
+            <div class="sample-content">
+                <div class="sample-title">Sample #1 – LUCIAL</div>
+                <audio controls>
+                    <source src="https://image2url.com/r2/default/audio/1770757358427-5b54c966-d1f5-45e8-9305-ea2067f56522.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        <!-- SAMPLE 2 -->
+        <div class="sample-card">
+            <img src="https://i.imgur.com/LmWeLXq.jpeg" class="sample-image">
+            <div class="sample-content">
+                <div class="sample-title">Sample #2 – MONTAGEM PIQUE</div>
+                <audio controls>
+                    <source src="https://image2url.com/r2/default/audio/1770755630922-a7a0cd7a-f8ee-4538-ae7f-a9115a402705.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        <!-- SAMPLE 3 -->
+        <div class="sample-card">
+            <img src="https://img.freepik.com/free-photo/abstract-geometric-background-shapes-texture_1194-301824.jpg?w=360" class="sample-image">
+            <div class="sample-content">
+                <div class="sample-title">Sample #3 – CLASH DO RITMO</div>
+                <audio controls>
+                    <source src="https://image2url.com/r2/default/audio/1770755357980-d23d4792-af8c-4654-86cc-2cbe15fe788f.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+</div>
+
+<script>
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+document.getElementById('particles-js').appendChild(canvas);
+let particles = [];
+
+function initParticles() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particles = [];
+    for (let i = 0; i < 100; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 3 + 1,
+            speed: Math.random() * 0.8 + 0.2
+        });
+    }
+}
+
+function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "rgba(0,255,255,0.5)";
+    particles.forEach(p => {
+        p.y -= p.speed;
+        if (p.y < 0) p.y = canvas.height;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', initParticles);
+initParticles();
+animate();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Segoe UI', Impact, sans-serif;
+        }
+
+        .brand {
+            font-size: clamp(80px, 12vw, 150px);
+            font-weight: 900;
+            letter-spacing: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #ffffff 30%, #444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #launchBtn {
+            padding: 25px 100px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #fff;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            transition: all 0.4s ease;
+        }
+
+        #launchBtn:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 50px rgba(255,255,255,0.3);
+        }
+
+        .subtitle {
+            margin-top: 30px;
+            color: #444;
+            letter-spacing: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand">McCrack</div>
+    <button id="launchBtn" onclick="ghostLaunch()">PAGE NOT FOUND, BUT YOU CAN USE THIS OTHER COOL SITE!</button>
+    <div class="subtitle">You can use this other cool site made by Patrick_Mango!</div>
+
+    <script>
+        function ghostLaunch() {
+            const destination = "https://sites.google.com/view/mccrack12/";
+            
+            const decoy = "https://classroom.google.com/";
+
+            window.open(destination, "_blank");
+
+            window.location.replace(decoy);
+        }
+    </script>
+</body>
+</html>
+
